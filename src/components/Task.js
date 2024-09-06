@@ -40,22 +40,22 @@ export default function Task(props) {
    
   return (
     <div>
-        <h1>{props.categoryName}</h1>
+        <h1 className="text-2xl text-cent mb-5">{props.categoryName}</h1>
 
         <div>
 
-            <h4 onClick={()=>setAdd(!add)} className="addTask">
+            <h4 onClick={()=>setAdd(!add)} className="text-indigo-600 cursor-pointer mt-2 mb-5">
                 {`${!add? "Add +": "Close -"}`}
             </h4>
 
             <div>
             {
                 add && (
-                    <div className="TaskInput">
+                    <div className="border-2 border-gray rounded p-2 mt-3 mb-3">
                         <form onSubmit={submitTask}>
-                            <input autoFocus value={details.value} name="value" onChange={handleTask} placeholder="Title" className="taskName"/>
-                            <input value={details.time} type="datetime-local" name="time" onChange={handleTask} className="taskDate"/>
-                            <button className="taskButton" type="submit">Add</button>
+                            <input className="border-none m-1 p-1 w-3/4 bg-gray-100 focus:outline-none" autoFocus value={details.value} name="value" onChange={handleTask} placeholder="Title" />
+                            <input value={details.time} type="datetime-local" name="time" onChange={handleTask} className="ml-1 border-2 border-gray-100"/>
+                            <button className="ml-2 bg-blue-500 p-1 rounded text-white transition-all ease-in-out delay-150 hover:bg-blue-700" type="submit">Add</button>
                         </form>
                     </div>
                 )
@@ -74,7 +74,7 @@ export default function Task(props) {
 
         </div>
 
-        <details className="completed">
+        <details className="cursor-pointer mt-6">
             <summary>Completed</summary>
             {
                 completed.length && completed.map(item=>(
